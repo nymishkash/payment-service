@@ -19,6 +19,8 @@ public class PaymentController {
 
     @PostMapping("/")
     public String initiatePayment(@RequestBody InitiatePaymentRequestDto requestDto) {
+//        return "email "  + requestDto.getEmail();
+
         return paymentService.initiatePayment(
                 requestDto.getOrderId(),
                 requestDto.getEmail()
