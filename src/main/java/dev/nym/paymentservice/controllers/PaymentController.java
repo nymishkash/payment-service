@@ -1,5 +1,6 @@
 package dev.nym.paymentservice.controllers;
 
+import com.razorpay.RazorpayException;
 import dev.nym.paymentservice.dtos.InitiatePaymentRequestDto;
 import dev.nym.paymentservice.services.PaymentService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ public class PaymentController {
     }
 
     @PostMapping("/")
-    public String initiatePayment(@RequestBody InitiatePaymentRequestDto requestDto) {
+    public String initiatePayment(@RequestBody InitiatePaymentRequestDto requestDto) throws RazorpayException {
 //        return "email "  + requestDto.getEmail();
 
         return paymentService.initiatePayment(
